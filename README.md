@@ -6,7 +6,7 @@
 
 Proyek ini adalah website portofolio v1 yang dirancang responsif (tampil rapi di ponsel, tablet, dan laptop) menggunakan HTML5 dan CSS3 murni (Flexbox & Media Queries). Versi ini disinkronkan menggunakan **Git** sebagai version control system, disimpan di repositori remote **GitHub**, dan dipublikasikan secara otomatis (*CI/CD Deployment*) melalui **Vercel**.
 
-* **Website Live:** <https://portofolio-dany.vercel.app> *(sesuaikan dengan URL Vercel kamu)*
+* **Website Live:** <https://portofolio-dany-saputra.vercel.app/>  atau <https://portfolio-smk.danix.my.id/>
 * **Repositori GitHub:** <https://github.com/danydevid/portofolio>
 
 ## 🖼️ Tampilan Website

@@ -11,7 +11,7 @@ Proyek ini adalah website portofolio v1 yang dirancang responsif (tampil rapi di
 
 ## 🖼️ Tampilan Website
 
-![Tangkapan Layar Portofolio](img/proyek-profil.png)
+![Tangkapan Layar Portofolio](img/profil-proyek.png)
 
 ## ✨ Fitur Utama
 

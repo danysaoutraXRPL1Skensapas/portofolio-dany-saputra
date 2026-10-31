@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>kalkulator</h1>
+  <form action="#" id="form">
+    <div>
+      <label for="n1">angka pertama: </label>
+      <input 
+        type="number"
+        name="n1"
+        id="n1"
+        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+    </div>
+
+    <div>
+      <label for="n2">angka kedua: </label>
+      <input 
+        type="number"
+        name="n2"
+        id="n2"
+        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+    </div>
+    
+    <div>
+      <label for="n3">angka ketiga: </label>
+      <input 
+      type="number"
+      name="n3"
+      id="n3"
+      oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+    </div>
+
+    <button type="submit">jumlah</button>
+
+  </form>
+
+  <p id="result"></p>
+
+  <script src="js/kalkulator.js" defer></script>
+  <script type="module" src="js/latihan.js" defer></script>
+
+</body>
+</html>

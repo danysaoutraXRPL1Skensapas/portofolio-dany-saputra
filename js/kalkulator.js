@@ -1,22 +1,38 @@
-// mengambil DOM element form
+/**
+ * @fileoverview Handles form submission for the simple summation calculator.
+ */
+
+/**
+ * The HTML form element for input numbers.
+ * @type {HTMLFormElement}
+ */
 let form = document.getElementById("form")
+
+/**
+ * The DOM element displaying the calculation result.
+ * @type {HTMLElement}
+ */
 let resultElement = document.getElementById("result")
 
-// menambahkan custom event yang akan ter-triger ketika user memencet tombol "jumlah"
+/**
+ * Event listener triggered when the user submits the calculator form.
+ * Calculates the sum of input numbers (n1, n2, n3) and displays the result.
+ *
+ * @param {SubmitEvent} e - The form submission event.
+ */
 form.addEventListener('submit', (e) => {
-  
-  //menghapus event default yang membuat halaman reload
+  // Prevent default page reload behavior
   e.preventDefault()
 
-  //mengambil isi dari input input yang ada pada form langsung menggunakna property
+  // Retrieve input values from the form inputs
   const n1 = Number(this.n1.value)
   const n2 = Number(this.n2.value)
   const n3 = Number(this.n3.value)
 
-  //menjumlahkan dan menyimpanya pada variable
+  // Calculate sum and store in result variable
   let result = n1 + n2 + n3;
 
-  // menampilkan hasilnya pada console dan ui web
+  // Output result to console and DOM
   console.log("total:", n1 + n2 + n3)
   resultElement.innerText = result
 })

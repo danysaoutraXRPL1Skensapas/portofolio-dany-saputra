@@ -1,52 +1,49 @@
 /**
- * @classdesc The 'Student' class. It contains a blueprint with methods that will be used to create student objects.
- * 
- * @property {string} nama - The full name of the student.
- * @property {string|number} kelas - The class/grade of the student (e.g., "10-A" or 12).
- * @property {number} kkm - The minimum passing grade criteria (Default: 75).
- * @property {number} nilaiTugas - The student's average assignment score.
- * @property {number} nilaiUts - The Midterm Exam score.
- * @property {number} nilaiUas - The Final Exam score.
- * @property {number} kehadiran - The attendance percentage (0-100).
- */
-/**
- * @classdesc A blueprint for creating student objects.
+ * Represents a student with academic records, grades, and evaluation methods.
  *
- * @property {string} nama          - Full name of the student.
- * @property {string|number} kelas  - Class/grade (e.g. "10-A" or 12).
- * @property {number} kkm           - Minimum passing grade. Default: 75.
- * @property {number} nilaiTugas    - Average assignment score.
- * @property {number} nilaiUts      - Midterm exam score.
- * @property {number} nilaiUas      - Final exam score.
- * @property {number} kehadiran     - Attendance percentage (0–100).
+ * @class
+ * @property {string} nama - Full name of the student.
+ * @property {string|number} kelas - Class or grade level (e.g., "X RPL 3" or 10).
+ * @property {number} kkm - Minimum passing grade criteria (default: 75).
+ * @property {number[]} nilaiTugas - Array of assignment scores.
+ * @property {number} nilaiUts - Midterm exam score (UTS).
+ * @property {number} nilaiUas - Final exam score (UAS).
+ * @property {number} kehadiran - Attendance percentage (0–100).
  */
 export default class Student {
-  /** @type {Set<string>} */
+  /**
+   * Set of property keys that cannot be modified via `setDetail`.
+   * @type {Set<string>}
+   */
   static #IMMUTABLE_KEYS = new Set(['nama', 'kelas', 'kkm']);
 
   /**
-   * @param {string} nama
-   * @param {string|number} kelas
-   * @param {number} [kkm=75]
-   * @param {number} [nilaiTugas=0]
-   * @param {number} [nilaiUts=0]
-   * @param {number} [nilaiUas=0]
-   * @param {number} [kehadiran=0]
+   * Creates an instance of the Student class.
+   *
+   * @param {string} nama - Full name of the student.
+   * @param {string|number} kelas - Class or grade level.
+   * @param {number} [kkm=75] - Minimum passing grade criteria.
+   * @param {number[]} [nilaiTugas=[]] - Array of assignment scores.
+   * @param {number} [nilaiUts=0] - Midterm exam score.
+   * @param {number} [nilaiUas=0] - Final exam score.
+   * @param {number} [kehadiran=0] - Attendance percentage (0–100).
    */
   constructor(nama, kelas, kkm = 75, nilaiTugas = [], nilaiUts = 0, nilaiUas = 0, kehadiran = 0) {
     Object.assign(this, { nama, kelas, kkm, nilaiTugas, nilaiUts, nilaiUas, kehadiran });
   }
 
   /**
+   * Retrieves a snapshot of the student's details.
+   *
    * @returns {{
    *   nama: string,
    *   kelas: string|number,
    *   kkm: number,
-   *   nilaiTugas: number,
+   *   nilaiTugas: number[],
    *   nilaiUts: number,
    *   nilaiUas: number,
    *   kehadiran: number
-   * }}
+   * }} Object containing the student's attributes.
    */
   getDetail() {
     return {
@@ -61,12 +58,12 @@ export default class Student {
   }
 
   /**
-   * Update a mutable property of the student.
+   * Updates a mutable property of the student instance.
    *
-   * @param {string} key
-   * @param {*} newValue
-   * @throws {RangeError} if `key` is not an own property of the instance.
-   * @throws {TypeError}  if `key` is marked as immutable.
+   * @param {string} key - Property name to update.
+   * @param {*} newValue - New value to assign to the property.
+   * @throws {RangeError} If `key` is not an own property of the instance.
+   * @throws {TypeError} If `key` is marked as immutable.
    */
   setDetail(key, newValue) {
     if (!Object.hasOwn(this, key)) {
@@ -80,10 +77,21 @@ export default class Student {
     this[key] = newValue;
   }
 
+  /**
+   * Calculates the average score from the assignment scores array (`nilaiTugas`).
+   *
+   * @returns {number} The calculated average assignment score.
+   */
   sumAverage() {
     return this.nilaiTugas.reduce((accumulator, n) => accumulator + n) / this.nilaiTugas.length
   }
 
+  /**
+   * Determines whether the student has passed based on the given average score and KKM.
+   *
+   * @param {number} [avg] - The average score to compare against KKM.
+   * @returns {"lulus" | "tidak lulus"} Returns "lulus" if passed, "tidak lulus" otherwise.
+   */
   lulus(avg) {
     return avg >= this.kkm ? "lulus" : "tidak lulus"
   }

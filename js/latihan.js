@@ -1,3 +1,6 @@
+/**
+ * @fileoverview Demonstration and testing script for the Student class instance and its methods.
+ */
 import Student from './oop/siswa.js'
 
 let djack = new Student("Djack Subroto", "X RPL 3", 75, [55, 34, 23], 234, 34, 5)

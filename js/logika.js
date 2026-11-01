@@ -1,4 +1,8 @@
 /**
+ * @fileoverview Collection of mathematical and logical utility functions.
+ */
+
+/**
  * Checks whether a given integer is even ("genap") or odd ("ganjil").
  *
  * @param {number} n - The integer to check.
@@ -20,7 +24,13 @@ const celsiusKeFahrenheit = (c) => c*9/5+32;
  * @param {...number} n - Numbers to compare.
  * @returns {number} The greatest number among the provided arguments.
  */
-const BestnilaiTerbesar = (...n) => Math.max(...n);
+const BestNilaiTerbesar = (...n) => Math.max(...n);
+
+/**
+ * Alias for BestNilaiTerbesar.
+ * @type {(...n: number[]) => number}
+ */
+const nilaiTerbesarBanyak = BestNilaiTerbesar;
 
 /**
  * Determines whether a given year is a leap year (tahun kabisat).
@@ -79,3 +89,23 @@ function nilaiTerbesar(a, b, c) {
     return NaN;
   }
 }
+
+export {
+  ganjilGenap,
+  celsiusKeFahrenheit,
+  BestNilaiTerbesar,
+  nilaiTerbesarBanyak,
+  tahunKabisat,
+  hargaSetelahDiskon,
+  nilaiTerbesar
+};
+
+export default {
+  ganjilGenap,
+  celsiusKeFahrenheit,
+  BestNilaiTerbesar,
+  nilaiTerbesarBanyak,
+  tahunKabisat,
+  hargaSetelahDiskon,
+  nilaiTerbesar
+};

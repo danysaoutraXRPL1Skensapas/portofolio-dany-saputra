@@ -1,0 +1,25 @@
+{
+  "name": "portofolio-dany-saputra",
+  "version": "1.0.0",
+  "description": "Website portofolio personal yang dikembangkan dalam rangka **Kelas Industri UBIG (PT Universal Big Data)** — Paket 1 Full Stack Basic.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test ./js/*.test.js",
+    "dev": "live-server --port=3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danysaoutraXRPL1Skensapas/portofolio-dany-saputra.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/danysaoutraXRPL1Skensapas/portofolio-dany-saputra/issues"
+  },
+  "homepage": "https://github.com/danysaoutraXRPL1Skensapas/portofolio-dany-saputra#readme",
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  }
+}

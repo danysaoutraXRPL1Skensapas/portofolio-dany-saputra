@@ -25,9 +25,9 @@ form.addEventListener('submit', (e) => {
   e.preventDefault()
 
   // Retrieve input values from the form inputs
-  const n1 = Number(this.n1.value)
-  const n2 = Number(this.n2.value)
-  const n3 = Number(this.n3.value)
+  const n1 = Number(this.n1.value || 0)
+  const n2 = Number(this.n2.value || 0)
+  const n3 = Number(this.n3.value || 0)
 
   // Calculate sum and store in result variable
   let result = n1 + n2 + n3;

@@ -1,6 +1,6 @@
 # 🌐 Portofolio Pribadi — Dany Saputra
 
-> Website portofolio personal yang dikembangkan dalam rangka **Kelas Industri UBIG (PT Universal Big Data)** — Paket 1 Full Stack Basic (Minggu 05 / P1-W05).
+> Website portofolio personal yang dikembangkan dalam rangka **Kelas Industri UBIG (PT Universal Big Data)** — Paket 1 Full Stack Basic.
 
 ## 📌 Deskripsi Proyek
 

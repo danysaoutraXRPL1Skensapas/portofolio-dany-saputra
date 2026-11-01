@@ -8,7 +8,7 @@ import assert from "node:assert";
 import logika, {
   ganjilGenap,
   celsiusKeFahrenheit,
-  BestnilaiTerbesar,
+  BestNilaiTerbesar,
   tahunKabisat,
   hargaSetelahDiskon,
   nilaiTerbesar
@@ -53,19 +53,19 @@ describe("Test Suite: logika.js", () => {
   });
 
   /**
-   * Tests for BestnilaiTerbesar function.
+   * Tests for BestNilaiTerbesar function.
    * Checks maximum value detection with variable arguments.
    */
-  describe("BestnilaiTerbesar()", () => {
+  describe("BestNilaiTerbesar()", () => {
     it("should return the largest number among arguments", () => {
-      assert.strictEqual(BestnilaiTerbesar(1, 5, 3), 5);
-      assert.strictEqual(BestnilaiTerbesar(10, 20, 99, 45, 12), 99);
-      assert.strictEqual(BestnilaiTerbesar(42), 42);
+      assert.strictEqual(BestNilaiTerbesar(1, 5, 3), 5);
+      assert.strictEqual(BestNilaiTerbesar(10, 20, 99, 45, 12), 99);
+      assert.strictEqual(BestNilaiTerbesar(42), 42);
     });
 
     it("should handle negative numbers correctly", () => {
-      assert.strictEqual(BestnilaiTerbesar(-10, -2, -50), -2);
-      assert.strictEqual(BestnilaiTerbesar(-5, -9, 0), 0);
+      assert.strictEqual(BestNilaiTerbesar(-10, -2, -50), -2);
+      assert.strictEqual(BestNilaiTerbesar(-5, -9, 0), 0);
     });
   });
 

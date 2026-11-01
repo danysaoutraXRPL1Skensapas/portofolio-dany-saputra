@@ -24,7 +24,13 @@ const celsiusKeFahrenheit = (c) => c*9/5+32;
  * @param {...number} n - Numbers to compare.
  * @returns {number} The greatest number among the provided arguments.
  */
-const BestnilaiTerbesar = (...n) => Math.max(...n);
+const BestNilaiTerbesar = (...n) => Math.max(...n);
+
+/**
+ * Alias for BestNilaiTerbesar.
+ * @type {(...n: number[]) => number}
+ */
+const nilaiTerbesarBanyak = BestNilaiTerbesar;
 
 /**
  * Determines whether a given year is a leap year (tahun kabisat).
@@ -87,7 +93,8 @@ function nilaiTerbesar(a, b, c) {
 export {
   ganjilGenap,
   celsiusKeFahrenheit,
-  BestnilaiTerbesar,
+  BestNilaiTerbesar,
+  nilaiTerbesarBanyak,
   tahunKabisat,
   hargaSetelahDiskon,
   nilaiTerbesar
@@ -96,7 +103,8 @@ export {
 export default {
   ganjilGenap,
   celsiusKeFahrenheit,
-  BestnilaiTerbesar,
+  BestNilaiTerbesar,
+  nilaiTerbesarBanyak,
   tahunKabisat,
   hargaSetelahDiskon,
   nilaiTerbesar

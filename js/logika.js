@@ -1,4 +1,8 @@
 /**
+ * @fileoverview Collection of mathematical and logical utility functions.
+ */
+
+/**
  * Checks whether a given integer is even ("genap") or odd ("ganjil").
  *
  * @param {number} n - The integer to check.
@@ -79,3 +83,21 @@ function nilaiTerbesar(a, b, c) {
     return NaN;
   }
 }
+
+export {
+  ganjilGenap,
+  celsiusKeFahrenheit,
+  BestnilaiTerbesar,
+  tahunKabisat,
+  hargaSetelahDiskon,
+  nilaiTerbesar
+};
+
+export default {
+  ganjilGenap,
+  celsiusKeFahrenheit,
+  BestnilaiTerbesar,
+  tahunKabisat,
+  hargaSetelahDiskon,
+  nilaiTerbesar
+};

@@ -3,7 +3,7 @@
   document.documentElement.setAttribute("data-theme", t);
 })();
 
-console.log("test")
+console.log("Theme.js executed")
 
 document.addEventListener("DOMContentLoaded", () => {
   const togle = document.getElementById("togleTheme");

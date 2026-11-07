@@ -1,9 +1,7 @@
 (function () {
-  var t = localStorage.getItem("theme") || "light"; 
+  const t = localStorage.getItem("theme") || "light"; 
   document.documentElement.setAttribute("data-theme", t);
 })();
-
-console.log("Theme.js executed")
 
 document.addEventListener("DOMContentLoaded", () => {
   const togle = document.getElementById("togleTheme");

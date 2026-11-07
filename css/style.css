@@ -240,6 +240,8 @@ input, select, textarea {
   margin-top: 0.25rem;
   border: 1px solid var(--border-strong);
   border-radius: 6px;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
   font-family: inherit;
   font-size: 1rem;
 }
@@ -319,4 +321,43 @@ footer a {
   color: var(--text-inverse);
   border-radius: 30px;
   text-align: center;
+}
+
+/* 10. Filter dan label proyek */
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tombol-filter {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--border-strong);
+  background-color: var(--bg-surface);
+  color: var(--text-heading);
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tombol-filter.aktif {
+  background-color: var(--color-accent);
+  color: var(--text-inverse);
+  border-color: var(--color-accent);
+}
+
+.label {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  margin-bottom: 0.5rem;
+  border-radius: 999px;
+  background-color: var(--bg-primary);
+  color: var(--text-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.keterangan {
+  font-size: 0.875rem;
 }

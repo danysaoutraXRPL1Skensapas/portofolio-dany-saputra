@@ -2,6 +2,8 @@
  * @fileoverview Collection of mathematical and logical utility functions.
  */
 
+
+// Soal 1: Ganjil/Genap
 /**
  * Checks whether a given integer is even ("genap") or odd ("ganjil").
  *
@@ -10,12 +12,15 @@
  */
 const ganjilGenap = (n) => n % 2 === 0 ? "genap" : "ganjil";
 
+// Soal 2: Celsius ke Fahrenheit (arrow function)
 /**
  * Converts a temperature value from Celsius to Fahrenheit.
  *
  * @param {number} c - Temperature in degrees Celsius.
  * @returns {number} Converted temperature in degrees Fahrenheit.
  */
+
+// Soal 3: Nilai terbesar dari banyak angka
 const celsiusKeFahrenheit = (c) => c*9/5+32;
 
 /**
@@ -32,6 +37,7 @@ const BestNilaiTerbesar = (...n) => Math.max(...n);
  */
 const nilaiTerbesarBanyak = BestNilaiTerbesar;
 
+// Soal 4: Tahun kabisat
 /**
  * Determines whether a given year is a leap year (tahun kabisat).
  * A year is a leap year if it is divisible by 4 and not divisible by 100,
@@ -44,6 +50,7 @@ const tahunKabisat = (tahun) => {
   return tahun % 4 === 0 && tahun % 100 !== 0 || tahun % 400 === 0; 
 }
 
+// Soal 5: Harga setelah diskon
 /**
  * Calculates the final price after applying a tiered discount based on the total purchase amount.
  * - Totals >= 200,000 receive a 20% discount (pays 80%).
@@ -59,6 +66,7 @@ function hargaSetelahDiskon(total) {
   return total;
 }
 
+// Tantangan: Nilai terbesar dari 3 angka
 /**
  * Finds the largest among three numeric inputs with normalization and signed zero handling.
  *
@@ -90,6 +98,30 @@ function nilaiTerbesar(a, b, c) {
   }
 }
 
+// Tantangan: Hitung rata-rata nilai tugas, UTS, dan UAS
+/**
+ * Calculates the average of assignment, midterm, and final scores.
+ * @param {number} tugas - Assignment score.
+ * @param {number} uts - Midterm exam score.
+ * @param {number} uas - Final exam score.
+ * @returns {number} The average of the three scores.
+ */
+const hitungRataRata = (tugas, uts, uas) => (tugas + uts + uas) / 3;
+
+// Tantangan: Tentukan predikat dari rata-rata nilai
+/**
+ * Determines the predicate label based on the average score.
+ * @param {number} rataRata - The average score (0–100).
+ * @returns {"A" | "B" | "C" | "D" | "E"} The predicate label.
+ */
+const predikat = (rataRata) => {
+  if (rataRata >= 90) return "A";
+  if (rataRata >= 80) return "B";
+  if (rataRata >= 70) return "C";
+  if (rataRata >= 60) return "D";
+  return "E";
+};
+
 export {
   ganjilGenap,
   celsiusKeFahrenheit,
@@ -97,7 +129,9 @@ export {
   nilaiTerbesarBanyak,
   tahunKabisat,
   hargaSetelahDiskon,
-  nilaiTerbesar
+  nilaiTerbesar,
+  hitungRataRata,
+  predikat
 };
 
 export default {
@@ -107,5 +141,7 @@ export default {
   nilaiTerbesarBanyak,
   tahunKabisat,
   hargaSetelahDiskon,
-  nilaiTerbesar
+  nilaiTerbesar,
+  hitungRataRata,
+  predikat
 };

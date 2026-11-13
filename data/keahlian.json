@@ -1,0 +1,26 @@
+[
+  {
+    "nama": "JavaScript",
+    "level": "Menengah"
+  },
+  {
+    "nama": "Next.js",
+    "level": "Dasar"
+  },
+  {
+    "nama": "C",
+    "level": "Dasar"
+  },
+  {
+    "nama": "Linux",
+    "level": "Dasar"
+  },
+  {
+    "nama": "HTML dasar",
+    "level": "Menengah"
+  },
+  {
+    "nama": "Mengetik cepat",
+    "level": "Mahir"
+  }
+]

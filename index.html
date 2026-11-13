@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
+  <link rel="icon" href="data:,">
 </head>
 <body>
   <header>
@@ -75,13 +77,8 @@
 
         <section class="kartu">
           <h2>Keahlian</h2>
-          <ul>
-            <li>javascript</li>
-            <li>nextjs (sedikit)</li>
-            <li>C</li>
-            <li>Linux</li>
-            <li>HTML dasar (sedang dipelajari)</li>
-            <li>Mengetik cepat</li></ul>
+          <ul id="daftar-skill"></ul>
+          <p id="jumlah-skill"></p>
         </section>
       </div>
 
@@ -115,8 +112,15 @@
           </tbody>
         </table>
       </section>
+
+      <section class="kartu">
+        <h2>Github Repository</h2>
+        <ul id="list-repo">memuat...</ul>
+      </section>
     </div>
   </main>
+
+  <div id="togleTheme"></div>
 
   <footer>
     <p>Kontak: <a href="mailto:study@danix.my.id">study@danix.my.id</a> |
@@ -125,8 +129,6 @@
     <p>&copy; 2026 Dany Saputra. Dibuat di Kelas Industri UBIG.</p>
   </footer>
   
-  <script type="module" src="js/logika.js" defer></script>
-  <script type="module" src="js/logika-demo.js" defer></script>
-  <script type="module" src="js/latihan.js" defer></script>
+  <script src="js/main.js" type="module" defer></script>
 </body>
 </html>

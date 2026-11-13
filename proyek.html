@@ -7,7 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <script src="js/theme.js"></script>
   <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:,">
 </head>
 <body>
   <header>
@@ -66,21 +68,57 @@
         <h2>Pertanyaan yang Sering Diajukan</h2>
         <details>
           <summary>Bahasa apa yang dipakai untuk membuat proyek ini?</summary>
-          <p>Semua proyek di halaman ini dibuat dengan HTML. Tampilannya akan saya rapikan dengan CSS mulai Minggu 03.</p>
+          <p>Proyek di halaman ini dibuat dengan HTML, CSS, dan JavaScript. Pilih tombol kategori di atas untuk melihat proyek per bahasa.</p>
         </details>
         <details>
           <summary>Apakah saya menerima pesanan pembuatan website?</summary>
           <p>Belum, saya masih belajar. Namun kamu tetap boleh menghubungi saya melalui halaman Kontak.</p>
         </details>
       </section>
+
+      <section class="kartu">
+        <h2>Daftar Proyek</h2>
+        <div class="filter">
+          <button type="button" class="tombol-filter aktif" id="filter-semua">Semua</button>
+          <button type="button" class="tombol-filter" id="filter-html">HTML</button>
+          <button type="button" class="tombol-filter" id="filter-css">CSS</button>
+          <button type="button" class="tombol-filter" id="filter-javascript">JavaScript</button>
+        </div>
+        <p id="jumlah-proyek"></p>
+        <div id="listprojectFilter" class="daftar-kartu"></div>
+      </section>
+
+      <section class="kartu">
+        <h2>Project (search with btn)</h2>
+        <div id="searchwithbtn">
+          <label for="searchwbtn">search</label>
+          <input type="search" name="searchwbtn" id="inputsearchwbtn">
+          <button type="submit">Search</button>
+        </div>
+        <div id="listprojectWBtn" class="daftar-kartu"></div>
+      </section>
+
+      <section>
+        <h2>Project (with oninput)</h2>
+        <div id="search">
+          <label for="searchInput">search</label>
+          <input type="search" name="searchInput" id="searchInput">
+        </div>
+
+        <div id="listproject" class="daftar-kartu"></div>
+      </section>
     </div>
   </main>
 
+  <div id="togleTheme"></div>
+  
   <footer>
     <p>Kontak: <a href="mailto:study@danix.my.id">study@danix.my.id</a> |
       <a href="https://github.com/danydevid" target="_blank">GitHub</a> |
       <a href="https://www.reddit.com/mrtrtchnix" target="_blank">Reddit</a></p>
     <p>&copy; 2026 Dany Saputra. Dibuat di Kelas Industri UBIG.</p>
   </footer>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>

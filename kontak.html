@@ -7,7 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <script src="js/theme.js"></script>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:,">
 </head>
 <body>
   <header>
@@ -64,7 +66,8 @@
           </p>
           <p>
             <label for="pesan">Pesan</label><br>
-            <textarea id="pesan" name="pesan" rows="5" cols="40" placeholder="Tulis pesanmu di sini" required></textarea>
+            <textarea id="pesan" name="pesan" rows="5" cols="40" maxlength="300" placeholder="Tulis pesanmu di sini" required></textarea><br>
+            <span id="hitung-karakter" class="keterangan">0/300 karakter</span>
           </p>
           <button type="submit">Kirim Pesan</button>
         </form>
@@ -72,11 +75,15 @@
     </div>
   </main>
 
+  <div id="togleTheme"></div>
+
   <footer>
     <p>Kontak: <a href="mailto:study@danix.my.id">study@danix.my.id</a> |
       <a href="https://github.com/danydevid" target="_blank">GitHub</a> |
       <a href="https://www.reddit.com/mrtrtchnix" target="_blank">Reddit</a></p>
     <p>&copy; 2026 Dany Saputra. Dibuat di Kelas Industri UBIG.</p>
   </footer>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>

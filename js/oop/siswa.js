@@ -5,7 +5,7 @@
  * @property {string} nama - Full name of the student.
  * @property {string|number} kelas - Class or grade level (e.g., "X RPL 3" or 10).
  * @property {number} kkm - Minimum passing grade criteria (default: 75).
- * @property {number[]} nilaiTugas - Array of assignment scores.
+ * @property {number} nilaiTugas - Assignment score.
  * @property {number} nilaiUts - Midterm exam score (UTS).
  * @property {number} nilaiUas - Final exam score (UAS).
  * @property {number} kehadiran - Attendance percentage (0–100).
@@ -23,12 +23,12 @@ export default class Student {
    * @param {string} nama - Full name of the student.
    * @param {string|number} kelas - Class or grade level.
    * @param {number} [kkm=75] - Minimum passing grade criteria.
-   * @param {number[]} [nilaiTugas=[]] - Array of assignment scores.
+   * @param {number} [nilaiTugas=0] - Assignment score.
    * @param {number} [nilaiUts=0] - Midterm exam score.
    * @param {number} [nilaiUas=0] - Final exam score.
    * @param {number} [kehadiran=0] - Attendance percentage (0–100).
    */
-  constructor(nama, kelas, kkm = 75, nilaiTugas = [], nilaiUts = 0, nilaiUas = 0, kehadiran = 0) {
+  constructor(nama, kelas, kkm = 75, nilaiTugas = 0, nilaiUts = 0, nilaiUas = 0, kehadiran = 0) {
     Object.assign(this, { nama, kelas, kkm, nilaiTugas, nilaiUts, nilaiUas, kehadiran });
   }
 
@@ -39,7 +39,7 @@ export default class Student {
    *   nama: string,
    *   kelas: string|number,
    *   kkm: number,
-   *   nilaiTugas: number[],
+   *   nilaiTugas: number,
    *   nilaiUts: number,
    *   nilaiUas: number,
    *   kehadiran: number
@@ -78,21 +78,45 @@ export default class Student {
   }
 
   /**
-   * Calculates the average score from the assignment scores array (`nilaiTugas`).
+   * Calculates the average score from assignments, UTS, and UAS.
+   * Adjusted to match the module requirement: (Tugas + UTS + UAS) / 3.
    *
-   * @returns {number} The calculated average assignment score.
+   * @returns {number} The calculated average score.
    */
   sumAverage() {
-    return this.nilaiTugas.reduce((accumulator, n) => accumulator + n) / this.nilaiTugas.length
+    return (this.nilaiTugas + this.nilaiUts + this.nilaiUas) / 3;
+  }
+
+  /**
+   * Determines the predicate based on the average score.
+   *
+   * @returns {string} The predicate ("A", "B", "C", or "D").
+   */
+  predikat() {
+    const avg = this.sumAverage();
+    if (avg >= 90) return "A";
+    else if (avg >= 80) return "B";
+    else if (avg >= 70) return "C";
+    else return "D";
   }
 
   /**
    * Determines whether the student has passed based on the given average score and KKM.
    *
-   * @param {number} [avg] - The average score to compare against KKM.
+   * @param {number} avg - The average score to compare against KKM.
    * @returns {"lulus" | "tidak lulus"} Returns "lulus" if passed, "tidak lulus" otherwise.
    */
   lulus(avg) {
-    return avg >= this.kkm ? "lulus" : "tidak lulus"
+    return avg >= this.kkm ? "lulus" : "tidak lulus";
   }
-} 
+
+  /**
+   * Determines whether the student is eligible for a certificate.
+   * Requires passing KKM and attendance >= 80.
+   *
+   * @returns {boolean} True if eligible, false otherwise.
+   */
+  dapatSertifikat() {
+    return this.lulus(this.sumAverage()) === "lulus" && this.kehadiran >= 80;
+  }
+}

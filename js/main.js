@@ -3,28 +3,35 @@ let tampilkan = console.log
 let table = console.table
 
 // 1. Daftar keahlian (halaman Beranda)
-let skills = [
-  { nama: "JavaScript", level: "Menengah" },
-  { nama: "Next.js", level: "Dasar" },
-  { nama: "C", level: "Dasar" },
-  { nama: "Linux", level: "Dasar" },
-  { nama: "HTML dasar", level: "Sedang dipelajari" },
-  { nama: "Mengetik cepat", level: "Mahir" },
-]
+//import skills from "../data/keahlian.json" with { type: 'json' }; 
+//I won't get any points if I use what I consider to be modern (I use ESM, by the way)
+
+let skills = [];
+
+fetch("data/keahlian.json")
+  .then((res) => (res.ok ? res.json() : Promise.reject("Gagal mengambil data")))
+  .then((data) => {
+    skills = data;
+    skills.push({ nama: "docker", level: "Dasar" });
+
+    const elDaftarSkill = document.getElementById("daftar-skill")
+    const elJumlahSkill = document.getElementById("jumlah-skill")
+    
+    if (elDaftarSkill && elJumlahSkill) {
+      skills.forEach((skill) => {
+        const li = document.createElement("li")
+        li.textContent = `${skill.nama} (${skill.level})`
+        elDaftarSkill.appendChild(li)
+      })
+      elJumlahSkill.textContent = `Ada ${skills.length} keahlian yang sedang saya kembangkan.`
+    }
+    console.log(skills);
+  })
+  .catch((err) => console.error(err));
+
 
 table(skills)
 
-const elDaftarSkill = document.getElementById("daftar-skill")
-const elJumlahSkill = document.getElementById("jumlah-skill")
-
-if (elDaftarSkill && elJumlahSkill) {
-  skills.forEach((skill) => {
-    const li = document.createElement("li")
-    li.textContent = `${skill.nama} (${skill.level})`
-    elDaftarSkill.appendChild(li)
-  })
-  elJumlahSkill.textContent = `Ada ${skills.length} keahlian yang sedang saya kembangkan.`
-}
 
 // 2. Tema gelap (theme.js)
 
@@ -44,55 +51,6 @@ const buatKartu = (judul, kategori, gambar, alt, deskripsi) => {
 }
 
 let projects = []
-projects.push(buatKartu(
-  "Halaman Profil Pertama",
-  "HTML",
-  "img/proyek-profil.png",
-  "Tangkapan layar halaman profil Andi Pratama",
-  "Halaman web pertama saya, dibuat dengan HTML dasar."
-))
-
-projects.push(buatKartu(
-  "Form Kontak",
-  "HTML",
-  "img/proyek-kontak.png",
-  "Tangkapan layar form kontak berisi lima isian",
-  "Form dengan label dan validasi bawaan browser."
-))
-
-projects.push(buatKartu(
-  "Tabel Jadwal Belajar",
-  "HTML",
-  "img/proyek-jadwal.png",
-  "Tangkapan layar tabel jadwal belajar mandiri",
-  "Jadwal belajar mingguan dengan thead dan tbody."
-))
-
-projects.push(buatKartu(
-  "Portofolio Responsif",
-  "CSS",
-  "img/proyek-responsif.png",
-  "Tangkapan layar portofolio di ponsel dan laptop",
-  "Rapi di ponsel, tablet, dan laptop dengan Flexbox."
-))
-
-projects.push(buatKartu(
-  "Kalkulator Nilai Rapor",
-  "JavaScript",
-  "img/proyek-kalkulator.png",
-  "Tangkapan layar hasil kalkulator nilai di Console",
-  "Rata-rata dan predikat nilai dengan fungsi JavaScript."
-))
-
-projects.push(buatKartu(
-  "Lima Soal Logika",
-  "JavaScript",
-  "img/proyek-logika.png",
-  "Tangkapan layar hasil uji lima soal logika",
-  "Lima fungsi logika yang masing-masing diuji 3 masukan."
-))
-
-table(projects)
 
 const elListProjectFilter = document.getElementById("listprojectFilter")
 const elJumlahProyek = document.getElementById("jumlah-proyek")
@@ -123,9 +81,7 @@ function pasangFilter(idTombol, kategori) {
 
   tombol.addEventListener("click", () => {
     const aktifLama = document.querySelector(".tombol-filter.aktif")
-    if (aktifLama) {
-      aktifLama.classList.remove("aktif")
-    }
+    if (aktifLama) aktifLama.classList.remove("aktif")
     tombol.classList.add("aktif")
 
     if (kategori === "Semua") {
@@ -136,7 +92,11 @@ function pasangFilter(idTombol, kategori) {
   })
 }
 
-if (elListProjectFilter) {
+function initProyek() {
+  table(projects)
+
+  if (!elListProjectFilter || !elJumlahProyek) return
+
   tampilkanProyek(projects)
   pasangFilter("filter-semua", "Semua")
   pasangFilter("filter-html", "HTML")
@@ -144,79 +104,85 @@ if (elListProjectFilter) {
   pasangFilter("filter-javascript", "JavaScript")
 }
 
-// 5. Search (bonus fitur)
-const listProjectWBtn = document.getElementById("listprojectWBtn")
-const listProject = document.getElementById("listproject")
+fetch("data/proyek.json")
+  .then((res) => (res.ok ? res.json() : Promise.reject("Gagal memuat proyek")))
+  .then((data) => {
+    projects = data.map((item) =>
+      buatKartu(item.judul, item.kategori, item.gambar, item.alt, item.deskripsi)
+    )
 
-if (listProjectWBtn && listProject) {
-  for (const project of projects) {
-    listProjectWBtn.innerHTML += `
-      <article class="kartu">
-        <h3>${project.judul}</h3>
-        <img src="${project.gambar}" alt="${project.alt}" width="280">
-        <p>${project.deskripsi}</p>
-      </article>
-    `
-    listProject.innerHTML += `
-      <article class="kartu">
-        <h3>${project.judul}</h3>
-        <img src="${project.gambar}" alt="${project.alt}" width="280">
-        <p>${project.deskripsi}</p>
-      </article>
-    `
+    projects.push(buatKartu(
+      "Lima Soal Logika",
+      "JavaScript",
+      "img/proyek-logika.png",
+      "Tangkapan layar hasil uji lima soal logika",
+      "Lima fungsi logika yang masing-masing diuji 3 masukan."
+    ))
+
+    console.log(projects)
+    initProyek()
+  })
+  .catch((err) => console.error(err))
+
+
+
+async function getDataGithub(api, mountNode) {
+  if (!mountNode) return
+
+  try {
+    const res = await fetch(api)
+    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`)
+    const repos = await res.json()
+
+    // 1) buang repo profil (opsional, seperti sebelumnya)
+    const filtered = repos.filter((r) => r.full_name !== "danydevid/danydevid")
+
+    // 2) sort: updated_at terbaru di atas
+    filtered.sort(
+      (a, b) => new Date(b.updated_at) - new Date(a.updated_at)
+    )
+
+    // 3) ambil 6 teratas
+    const top6 = filtered.slice(0, 6)
+
+    // 4) render
+    const frag = document.createDocumentFragment()
+
+    for (const repo of top6) {
+      const li = document.createElement("li")
+
+      const a = document.createElement("a")
+      a.href        = repo.html_url
+      a.textContent = repo.full_name
+      a.target      = "_blank"
+      a.rel         = "noopener noreferrer"
+
+      // bahasa — fallback kalau null
+      const bahasa = repo.language ?? "—"
+
+      // bintang
+      const bintang = repo.stargazers_count
+
+      const meta = document.createElement("span")
+      meta.className   = "repo-meta"
+      meta.textContent = ` (${bahasa} · ⭐ ${bintang})`
+
+      li.append(a, meta)
+      frag.appendChild(li)
+    }
+
+    mountNode.replaceChildren(frag)
+  } catch (err) {
+    console.error("Gagal mengambil data:", err.message)
   }
 }
 
-const searchwithbtn = document.querySelector("#searchwithbtn button")
-const inputSearch = document.getElementById("inputsearchwbtn")
-if (searchwithbtn != null && inputSearch && listProjectWBtn) {
-  searchwithbtn.addEventListener("click", () => {
-    const keyword = inputSearch.value.toLowerCase()
-    listProjectWBtn.innerHTML = ""
-    
-    const hasil = projects.filter(item => 
-      item.judul.toLowerCase().includes(keyword) || 
-      item.deskripsi.toLowerCase().includes(keyword)
-    )
-
-    hasil.forEach(project => {
-      listProjectWBtn.innerHTML += `
-        <article class="kartu">
-          <h3>${project.judul}</h3>
-          <img src="${project.gambar}" alt="${project.alt}" width="280">
-          <p>${project.deskripsi}</p>
-        </article>
-      `
-    })
-  })
-}
-
-const searchInput = document.getElementById("searchInput")
-if (searchInput) {
-  searchInput.addEventListener("input", (event) => {
-    const keyword = event.target.value
-    searchProject(keyword)
-  })
-}
-
-function searchProject(keyword) {
-  if (!listProject) return
-  keyword = keyword.toLowerCase()
-  
-  listProject.innerHTML = ""
-  
-  const hasil = projects.filter(item => 
-    item.judul.toLowerCase().includes(keyword) || 
-    item.deskripsi.toLowerCase().includes(keyword)
+const listRepo = document.getElementById("list-repo")
+if (listRepo) {
+  getDataGithub(
+    "https://api.github.com/users/danydevid/repos?per_page=100&sort=updated",
+    listRepo
   )
-
-  hasil.forEach(project => {
-    listProject.innerHTML += `
-      <article class="kartu">
-        <h3>${project.judul}</h3>
-        <img src="${project.gambar}" alt="${project.alt}" width="280">
-        <p>${project.deskripsi}</p>
-      </article>
-    `
-  })
 }
+
+getDataGithub("https://api.github.com/users/danydevid/repos", listRepo)

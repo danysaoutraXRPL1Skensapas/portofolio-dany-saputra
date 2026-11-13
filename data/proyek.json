@@ -1,0 +1,37 @@
+[
+  {
+    "judul": "Halaman Profil Pertama",
+    "kategori": "HTML",
+    "gambar": "img/proyek-profil.png",
+    "alt": "Tangkapan layar halaman profil Andi Pratama",
+    "deskripsi": "Halaman web pertama saya, dibuat dengan HTML dasar."
+  },
+  {
+    "judul": "Form Kontak",
+    "kategori": "HTML",
+    "gambar": "img/proyek-kontak.png",
+    "alt": "Tangkapan layar form kontak berisi lima isian",
+    "deskripsi": "Form dengan label dan validasi bawaan browser."
+  },
+  {
+    "judul": "Tabel Jadwal Belajar",
+    "kategori": "HTML",
+    "gambar": "img/proyek-jadwal.png",
+    "alt": "Tangkapan layar tabel jadwal belajar mandiri",
+    "deskripsi": "Jadwal belajar mingguan dengan thead dan tbody."
+  },
+  {
+    "judul": "Portofolio Responsif",
+    "kategori": "CSS",
+    "gambar": "img/proyek-responsif.png",
+    "alt": "Tangkapan layar portofolio di ponsel dan laptop",
+    "deskripsi": "Rapi di ponsel, tablet, dan laptop dengan Flexbox."
+  },
+  {
+    "judul": "Kalkulator Nilai Rapor",
+    "kategori": "JavaScript",
+    "gambar": "img/proyek-kalkulator.png",
+    "alt": "Tangkapan layar hasil kalkulator nilai di Console",
+    "deskripsi": "Rata-rata dan predikat nilai dengan fungsi JavaScript."
+  }
+]

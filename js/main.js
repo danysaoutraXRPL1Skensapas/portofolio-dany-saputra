@@ -52,7 +52,7 @@ const buatKartu = (judul, kategori, gambar, alt, deskripsi) => {
 
 let projects = []
 
-const elListProjectFilter = document.getElementById("listprojectFilter")
+const elListProjectFilter = document.getElementById("daftar-proyek") || document.getElementById("listprojectFilter")
 const elJumlahProyek = document.getElementById("jumlah-proyek")
 
 const kartuHTML = (project) => {
@@ -60,7 +60,7 @@ const kartuHTML = (project) => {
     <article class="kartu">
       <span class="label">${project.kategori}</span>
       <h3>${project.judul}</h3>
-      <img src="${project.gambar}" alt="${project.alt}" width="280">
+      <img src="${project.gambar}" alt="${project.alt}" width="280" height="180">
       <p>${project.deskripsi}</p>
     </article>
   `
@@ -184,5 +184,3 @@ if (listRepo) {
     listRepo
   )
 }
-
-getDataGithub("https://api.github.com/users/danydevid/repos", listRepo)

@@ -21,5 +21,8 @@
   "homepage": "https://github.com/danysaoutraXRPL1Skensapas/portofolio-dany-saputra#readme",
   "devDependencies": {
     "live-server": "^1.2.0"
+  },
+  "dependencies": {
+    "lighthouse": "^13.6.0"
   }
 }

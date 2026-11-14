@@ -1,5 +1,5 @@
 /* Gaya portofolio Dany Saputra
-   Palet: #1D3557 (utama), #E63946 (aksen), #F1FAEE (latar)
+   Palet: #1D3557 (utama), #C1121F (aksen), #F1FAEE (latar)
    Huruf: Poppins (judul), Inter (isi)
    Tata letak: mobile first, titik ubah 768px (tablet) dan 1024px (laptop) */
 
@@ -12,7 +12,7 @@
 :root {
   /* Brand (identitas, biasanya tetap) */
   --color-primary: #1D3557;
-  --color-accent: #E63946;
+  --color-accent: #C1121F;
 
   /* Latar */
   --bg-primary: #F1FAEE;
@@ -25,7 +25,7 @@
   --text-heading: #1D3557;
   --text-inverse: #FFFFFF;
   --text-footer: #F1FAEE;
-  --text-link: #E63946;
+  --text-link: #C1121F;
 
   /* Border & shadow */
   --border-color: #DDDDDD;
@@ -199,6 +199,10 @@ main {
 .daftar-kartu .kartu {
   flex: 1 1 280px;
   margin-bottom: 0;
+}
+
+#daftar-proyek {
+  min-height: 30rem;
 }
 
 article img {
